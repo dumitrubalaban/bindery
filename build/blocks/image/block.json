@@ -1,0 +1,26 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bindery/image",
+	"version": "0.1.0",
+	"title": "Bindery Image",
+	"category": "media",
+	"icon": "format-image",
+	"description": "An editable image — the client picks one from the media library inline; stored per language and rendered from the attachment.",
+	"keywords": [ "bindery", "image", "media", "picture" ],
+	"textdomain": "bindery",
+	"attributes": {
+		"fieldKey": { "type": "string", "default": "" },
+		"binderyType": { "type": "string", "default": "image" },
+		"size": { "type": "string", "default": "large" },
+		"alt": { "type": "string", "default": "" }
+	},
+	"usesContext": [ "postId" ],
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}

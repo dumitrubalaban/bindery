@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bindery/cards",
+	"version": "0.1.0",
+	"title": "Bindery Cards",
+	"category": "design",
+	"icon": "grid-view",
+	"description": "An editable grid of cards backed by a Bindery repeater field — clients add, remove, reorder and edit rows inline, per language.",
+	"keywords": [ "bindery", "repeater", "cards", "grid", "features" ],
+	"textdomain": "bindery",
+	"attributes": {
+		"fieldKey": { "type": "string", "default": "" },
+		"binderyType": { "type": "string", "default": "repeater" },
+		"subfields": { "type": "object", "default": { "title": "h4", "body": "p" } },
+		"labels": { "type": "object", "default": {} },
+		"columns": { "type": "number", "default": 3 }
+	},
+	"usesContext": [ "postId" ],
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,11 @@
+/* bindery/image — shared front + editor. */
+.bindery-image {
+	margin: 0 auto;
+	max-width: 100%;
+}
+.bindery-image img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	border-radius: 12px;
+}

@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bindery/icon",
+	"version": "0.1.0",
+	"title": "Bindery Icon",
+	"category": "design",
+	"icon": "star-filled",
+	"description": "An editable icon — the client picks one from a curated set; stored per language and rendered as inline SVG.",
+	"keywords": [ "bindery", "icon", "svg" ],
+	"textdomain": "bindery",
+	"attributes": {
+		"fieldKey": { "type": "string", "default": "" },
+		"binderyType": { "type": "string", "default": "text" },
+		"size": { "type": "number", "default": 48 },
+		"color": { "type": "string", "default": "#d8b75d" }
+	},
+	"usesContext": [ "postId" ],
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}

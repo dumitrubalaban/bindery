@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".wp-block-bindery-editable-text").forEach(function(e){e.setAttribute("data-bindery-ready","1")})});

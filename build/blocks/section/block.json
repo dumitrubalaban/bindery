@@ -1,0 +1,26 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bindery/section",
+	"version": "0.1.0",
+	"title": "Bindery Section",
+	"category": "design",
+	"icon": "cover-image",
+	"description": "A full-width section with an editable background image and any blocks inside — ideal for hero areas.",
+	"keywords": [ "bindery", "section", "cover", "hero", "background" ],
+	"textdomain": "bindery",
+	"attributes": {
+		"fieldKey": { "type": "string", "default": "" },
+		"binderyType": { "type": "string", "default": "image" },
+		"overlay": { "type": "number", "default": 45 },
+		"minHeight": { "type": "string", "default": "420px" }
+	},
+	"usesContext": [ "postId" ],
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}

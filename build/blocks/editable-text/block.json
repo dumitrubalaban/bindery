@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bindery/editable-text",
+	"version": "0.1.0",
+	"title": "Bindery Editable Text",
+	"category": "text",
+	"icon": "edit-page",
+	"description": "A text region whose content is resolved from a Bindery field — clean markup the developer controls, editable only where allowed.",
+	"keywords": [ "bindery", "editable", "field", "binding" ],
+	"textdomain": "bindery",
+	"attributes": {
+		"fieldKey": { "type": "string", "default": "" },
+		"tag": { "type": "string", "default": "p" },
+		"placeholder": { "type": "string", "default": "" },
+		"locked": { "type": "boolean", "default": false }
+	},
+	"usesContext": [ "postId" ],
+	"supports": {
+		"html": false,
+		"className": true,
+		"anchor": true
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}
