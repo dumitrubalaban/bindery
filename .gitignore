@@ -1,0 +1,6 @@
+/vendor/
+/node_modules/
+/build/
+/composer.phar
+/.phpunit.cache/
+.phpunit.result.cache

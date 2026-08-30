@@ -1,0 +1,392 @@
+/* Bindery front-end edit overlay (loaded only for users who can edit).
+   --bindery-fe-accent is set from the settings page (default gold). */
+.bindery-fe-toggle {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 99999;
+	border: 0;
+	border-radius: 15px;
+	padding: 15px;
+	background: var( --bindery-fe-accent, #d8b75d );
+	color: #1a1408;
+	font: 700 14px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	cursor: pointer;
+	box-shadow: 0 6px 18px rgba( 0, 0, 0, 0.4 );
+}
+.bindery-fe-toggle:focus-visible,
+.bindery-fe-bar select:focus-visible {
+	outline: 3px solid #1a1408;
+	outline-offset: 2px;
+}
+
+/* The editing toolbar is hidden by default — the floating "Done" button is the
+   only chrome, and save feedback shows as a green outline flash on the edited
+   element itself. A theme can opt the toolbar back in with:
+   body.bindery-editing .bindery-fe-bar { display: flex; } */
+.bindery-fe-bar {
+	position: fixed;
+	bottom: 22px;
+	right: 132px;
+	z-index: 99999;
+	display: none;
+	align-items: center;
+	gap: 10px;
+	padding: 7px 10px 7px 16px;
+	background: #161922;
+	border: 1px solid #2f3442;
+	border-radius: 999px;
+	color: #e9e6df;
+	font: 13px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.bindery-fe-bar select {
+	background: #0f1115;
+	color: #e9e6df;
+	border: 1px solid #2f3442;
+	border-radius: 8px;
+	padding: 4px 8px;
+}
+
+/* Only regions the overlay actually made editable get the affordance — keyed on
+   the class the script adds, so strict mode and non-inline types stay unmarked. */
+body.bindery-editing .bindery-region-active {
+	outline: 2px dashed var( --bindery-fe-accent, #d8b75d );
+	outline-offset: 3px;
+	border-radius: 3px;
+	cursor: text;
+	transition: outline-color 0.25s ease;
+}
+body.bindery-editing .bindery-region-active:hover { outline-style: solid; }
+body.bindery-editing .bindery-region-active:focus,
+body.bindery-editing .bindery-region-active:focus-visible {
+	outline: 3px solid var( --bindery-fe-accent, #f0d488 );
+	outline-offset: 3px;
+}
+
+/* richtext regions get the same affordance as any other editable region, plus a
+   small pencil-on-paper cue in the corner hinting that formatting is available
+   there (shown on hover/focus only, so it doesn't clutter the page). */
+body.bindery-editing .bindery-region-rich {
+	position: relative;
+}
+body.bindery-editing .bindery-region-rich::after {
+	content: "Aa";
+	position: absolute;
+	top: -9px;
+	right: -9px;
+	width: 18px;
+	height: 18px;
+	line-height: 18px;
+	text-align: center;
+	font: 700 10px/18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	color: #1a1408;
+	background: var( --bindery-fe-accent, #d8b75d );
+	border-radius: 50%;
+	opacity: 0;
+	transition: opacity 0.15s ease;
+	pointer-events: none;
+}
+body.bindery-editing .bindery-region-rich:hover::after,
+body.bindery-editing .bindery-region-rich:focus::after {
+	opacity: 1;
+}
+
+/* Image regions aren't contenteditable — clicking opens the native media
+   library instead — so they get their own affordance: a pointer cursor and a
+   "Replace image" label instead of the caret + "Aa" badge used for text. */
+body.bindery-editing .bindery-region-image {
+	cursor: pointer;
+	position: relative;
+}
+body.bindery-editing .bindery-region-image::after {
+	content: "Replace image";
+	position: absolute;
+	left: 8px;
+	bottom: 8px;
+	padding: 5px 12px;
+	font: 700 12px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	color: #1a1408;
+	background: var( --bindery-fe-accent, #d8b75d );
+	border-radius: 999px;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.15s ease;
+}
+body.bindery-editing .bindery-region-image:hover::after,
+body.bindery-editing .bindery-region-image:focus-visible::after {
+	opacity: 1;
+}
+
+/* The floating formatting toolbar that appears above/below a focused richtext
+   region — deliberately small and out of the way until you need it. Grouped
+   with thin separators (history | inline styles | alignment | block/link),
+   like a real editor toolbar rather than one flat row of buttons. */
+/* The [hidden] attribute is how the script actually hides this bar
+   (toolbar.hidden = true), but the class's own `display: flex` below has
+   equal specificity to the UA stylesheet's `[hidden] { display: none }` and
+   loads after it — so without this override, "hidden" sets the attribute but
+   the bar stays visibly flexed on screen regardless. */
+.bindery-fe-format-bar[hidden] {
+	display: none;
+}
+.bindery-fe-format-bar {
+	position: absolute;
+	z-index: 100000;
+	display: flex;
+	align-items: center;
+	gap: 1px;
+	padding: 4px;
+	background: #161922;
+	border: 1px solid #2f3442;
+	border-radius: 8px;
+	box-shadow: 0 6px 18px rgba( 0, 0, 0, 0.35 );
+}
+.bindery-fe-format-sep {
+	width: 1px;
+	height: 20px;
+	margin: 0 4px;
+	background: #2f3442;
+	flex: 0 0 auto;
+}
+.bindery-fe-format-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 28px;
+	height: 28px;
+	padding: 0 6px;
+	border: 0;
+	border-radius: 5px;
+	background: transparent;
+	color: #e9e6df;
+	font: 700 13px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	cursor: pointer;
+}
+.bindery-fe-format-btn svg {
+	width: 16px;
+	height: 16px;
+}
+/* Styled letters for the four text-decoration commands — reads instantly
+   without needing separate icon art, and matches how most editors show them. */
+.bindery-fe-format-btn.is-bold { font-weight: 800; }
+.bindery-fe-format-btn.is-italic { font-style: italic; }
+.bindery-fe-format-btn.is-underline { text-decoration: underline; }
+.bindery-fe-format-btn.is-strike { text-decoration: line-through; }
+.bindery-fe-format-btn:hover {
+	background: #2a2f3c;
+}
+.bindery-fe-format-btn.is-active {
+	background: var( --bindery-fe-accent, #d8b75d );
+	color: #1a1408;
+}
+.bindery-fe-format-btn:focus-visible {
+	outline: 2px solid var( --bindery-fe-accent, #d8b75d );
+	outline-offset: 1px;
+}
+
+/* --- Repeaters ---------------------------------------------------------
+   A container the theme marked with bindery_repeater_attrs(); its rows are
+   whatever markup the theme already built (a testimonial card, a slide, a
+   pricing tier) — the overlay only adds a small floating control cluster
+   per row plus a dashed "add" placeholder, never touching the row's own
+   look. */
+body.bindery-editing .bindery-region-repeater-row {
+	position: relative;
+	outline: 2px dashed var( --bindery-fe-accent, #d8b75d );
+	outline-offset: 3px;
+	border-radius: 3px;
+}
+.bindery-fe-row-controls {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	z-index: 500;
+	display: flex;
+	gap: 2px;
+	padding: 3px;
+	background: #161922;
+	border: 1px solid #2f3442;
+	border-radius: 8px;
+	box-shadow: 0 6px 18px rgba( 0, 0, 0, 0.35 );
+}
+.bindery-fe-row-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 26px;
+	height: 26px;
+	padding: 0 4px;
+	border: 0;
+	border-radius: 5px;
+	background: transparent;
+	color: #e9e6df;
+	font: 700 13px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	cursor: pointer;
+}
+.bindery-fe-row-btn:hover {
+	background: #2a2f3c;
+}
+.bindery-fe-row-btn:focus-visible {
+	outline: 2px solid var( --bindery-fe-accent, #d8b75d );
+	outline-offset: 1px;
+}
+.bindery-fe-row-handle {
+	cursor: grab;
+	color: #a8a19a;
+}
+.bindery-fe-row-handle:active {
+	cursor: grabbing;
+}
+
+/* Dragged row fades in place (native DnD already shows its own drag image,
+   so this is just "this is the thing that's moving" feedback on the
+   original spot); the hovered drop target gets a solid accent outline so
+   it's unambiguous which card a drop will land on/before. */
+body.bindery-editing .bindery-region-repeater-row.is-dragging {
+	opacity: 0.4;
+}
+body.bindery-editing .bindery-region-repeater-row.is-drop-target {
+	outline-style: solid;
+	outline-color: var( --bindery-fe-accent, #d8b75d );
+}
+
+.bindery-fe-add-row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 160px;
+	border: 2px dashed rgba( 0, 0, 0, 0.2 );
+	border-radius: 12px;
+	background: rgba( 0, 0, 0, 0.02 );
+	color: inherit;
+	font: 700 14px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	cursor: pointer;
+	opacity: 0.6;
+	transition: opacity 0.15s ease, background 0.15s ease;
+}
+.bindery-fe-add-row:hover {
+	opacity: 1;
+	background: rgba( 0, 0, 0, 0.04 );
+}
+
+.bindery-fe-row-backdrop {
+	position: fixed;
+	inset: 0;
+	z-index: 100001;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba( 15, 17, 21, 0.6 );
+	padding: 24px;
+}
+.bindery-fe-row-editor {
+	width: 100%;
+	max-width: 420px;
+	max-height: 85vh;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	padding: 24px;
+	background: #161922;
+	border: 1px solid #2f3442;
+	border-radius: 12px;
+	box-shadow: 0 24px 60px rgba( 0, 0, 0, 0.5 );
+	color: #e9e6df;
+	font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+.bindery-fe-row-editor h3 {
+	margin: 0;
+	font-size: 16px;
+}
+.bindery-fe-row-field {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	font-weight: 600;
+	font-size: 12px;
+	color: #a8a19a;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+.bindery-fe-row-field input,
+.bindery-fe-row-field textarea {
+	font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	font-weight: 400;
+	text-transform: none;
+	letter-spacing: normal;
+	color: #e9e6df;
+	background: #0f1115;
+	border: 1px solid #2f3442;
+	border-radius: 8px;
+	padding: 10px 12px;
+	resize: vertical;
+}
+.bindery-fe-row-field input:focus,
+.bindery-fe-row-field textarea:focus {
+	outline: 2px solid var( --bindery-fe-accent, #d8b75d );
+	outline-offset: 1px;
+}
+.bindery-fe-row-image-preview {
+	width: 100%;
+	max-height: 140px;
+	object-fit: cover;
+	border-radius: 8px;
+	background: #0f1115;
+	display: none;
+}
+.bindery-fe-row-image-preview[src]:not([src=""]) {
+	display: block;
+}
+.bindery-fe-row-image-btn {
+	align-self: flex-start;
+	border: 1px solid #2f3442;
+	background: #0f1115;
+	color: #e9e6df;
+	border-radius: 8px;
+	padding: 8px 14px;
+	font: 600 13px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	cursor: pointer;
+}
+.bindery-fe-row-image-btn:hover {
+	background: #1c2029;
+}
+.bindery-fe-row-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+	margin-top: 4px;
+}
+.bindery-fe-row-actions button {
+	border: 0;
+	border-radius: 999px;
+	padding: 10px 20px;
+	font: 700 13px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	cursor: pointer;
+}
+.bindery-fe-row-cancel {
+	background: transparent;
+	color: #a8a19a;
+}
+.bindery-fe-row-cancel:hover {
+	color: #e9e6df;
+}
+.bindery-fe-row-save {
+	background: var( --bindery-fe-accent, #d8b75d );
+	color: #1a1408;
+}
+.bindery-fe-row-save:hover {
+	background: #f0d488;
+}
+
+/* Respect users who ask for less motion: drop the outline transition. */
+@media ( prefers-reduced-motion: reduce ) {
+	body.bindery-editing .bindery-region-active { transition: none; }
+	body.bindery-editing .bindery-region-rich::after { transition: none; }
+}
+
+/* Strengthen the editable affordance for high-contrast preferences. */
+@media ( prefers-contrast: more ) {
+	body.bindery-editing .bindery-region-active { outline-width: 3px; }
+}

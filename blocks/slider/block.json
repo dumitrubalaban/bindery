@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bindery/slider",
+	"version": "0.1.0",
+	"title": "Bindery Slider",
+	"category": "design",
+	"icon": "images-alt2",
+	"description": "An auto-advancing slider whose slides are a Bindery repeater — edit slides inline per language; the carousel runs from the block's own viewScript on the front end.",
+	"keywords": [ "bindery", "slider", "carousel", "repeater", "slides" ],
+	"textdomain": "bindery",
+	"attributes": {
+		"fieldKey": { "type": "string", "default": "" },
+		"binderyType": { "type": "string", "default": "repeater" },
+		"subfields": { "type": "object", "default": { "title": "h3", "text": "p" } },
+		"labels": { "type": "object", "default": {} },
+		"autoplay": { "type": "boolean", "default": true },
+		"interval": { "type": "number", "default": 5000 }
+	},
+	"usesContext": [ "postId" ],
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

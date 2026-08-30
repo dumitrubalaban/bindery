@@ -1,0 +1,75 @@
+/* bindery/form — shared front + editor. Colours come from --bindery-* custom
+   properties with neutral fallbacks so the form adapts to any theme. */
+.bindery-form {
+	max-width: 540px;
+	margin: 0 auto;
+	background: var(--bindery-surface, rgba(127, 127, 127, 0.1));
+	border: 1px solid var(--bindery-border, rgba(127, 127, 127, 0.25));
+	border-radius: 16px;
+	padding: 32px;
+	text-align: left;
+}
+.bindery-form__title {
+	margin: 0 0 18px;
+	color: var(--bindery-text, inherit);
+	font-size: 24px;
+	text-align: center;
+}
+.bindery-form__field {
+	display: block;
+	margin: 0 0 14px;
+}
+.bindery-form__field span {
+	display: block;
+	margin: 0 0 6px;
+	color: var(--bindery-muted, #737373);
+	font-size: 14px;
+}
+.bindery-form__field input,
+.bindery-form__field textarea {
+	width: 100%;
+	box-sizing: border-box;
+	background: var(--bindery-input-bg, rgba(127, 127, 127, 0.06));
+	border: 1px solid var(--bindery-border, rgba(127, 127, 127, 0.3));
+	border-radius: 10px;
+	padding: 11px 14px;
+	color: var(--bindery-text, inherit);
+	font: inherit;
+}
+.bindery-form__field input:focus,
+.bindery-form__field textarea:focus {
+	outline: none;
+	border-color: var(--bindery-accent, #d8b75d);
+}
+.bindery-form__hp {
+	position: absolute !important;
+	left: -9999px !important;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+.bindery-form__submit {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	border: 0;
+	margin-top: 6px;
+	padding: 13px 24px;
+	border-radius: 999px;
+	background: linear-gradient( 180deg, var(--bindery-accent-2, #f0d488), var(--bindery-accent, #d8b75d) );
+	color: var(--bindery-accent-text, #1a1408);
+	font-weight: 700;
+	font-size: 16px;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+}
+.bindery-form__message {
+	margin: 14px 0 0;
+	padding: 10px 14px;
+	border-radius: 10px;
+	font-size: 14px;
+	text-align: center;
+}
+.bindery-form__message.is-success { background: rgba( 72, 160, 90, 0.18 ); color: var(--bindery-success-text, #2f7d44); }
+.bindery-form__message.is-error { background: rgba( 200, 70, 70, 0.18 ); color: var(--bindery-error-text, #b33); }

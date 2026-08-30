@@ -1,0 +1,26 @@
+/* bindery/section — shared front + editor. */
+.bindery-section {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 72px 24px;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.bindery-section__overlay {
+	position: absolute;
+	inset: 0;
+	background: var(--bindery-overlay, #0f1115);
+	z-index: 0;
+	pointer-events: none;
+}
+.bindery-section__inner {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	max-width: 1040px;
+	margin: 0 auto;
+}

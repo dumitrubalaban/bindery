@@ -1,0 +1,29 @@
+/**
+ * Frontend + editor styles for bindery/editable-text.
+ * Loaded by WordPress only when the block is present on a page.
+ */
+.wp-block-bindery-editable-text {
+	margin: 0 0 1em;
+}
+
+.wp-block-bindery-editable-text[data-bindery-empty="1"] {
+	opacity: 0.6;
+}
+
+/*
+ * Self-contained "button" utility: an editable-text block given the extra class
+ * `bindery-button` reads as a pill button in ANY theme. Previously this styling
+ * lived in the demo theme's stylesheet, so the CTA lost its look in other themes;
+ * bundling it here keeps it portable. Accent colours come from --bindery-* vars.
+ */
+.wp-block-bindery-editable-text.bindery-button {
+	display: inline-block;
+	margin: 6px 0;
+	padding: 13px 32px;
+	border-radius: 999px;
+	background: linear-gradient( 180deg, var(--bindery-accent-2, #f0d488), var(--bindery-accent, #d8b75d) );
+	color: var(--bindery-accent-text, #1a1408);
+	font-weight: 700;
+	text-decoration: none;
+	opacity: 1;
+}

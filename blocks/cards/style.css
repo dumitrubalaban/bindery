@@ -1,0 +1,53 @@
+/*
+ * bindery/cards — self-contained, loaded on the front end AND in the editor
+ * (block.json "style"). The editor renders the same .bindery-cards / .bindery-card
+ * markup, so the grid looks identical in both.
+ *
+ * Colours are driven by --bindery-* custom properties so the block adapts to any
+ * theme: the fallbacks are neutral (a translucent grey surface + inherited text)
+ * and read on both light and dark themes. A theme sets the variables (e.g. on
+ * :root) to apply its own palette — the bundled demo theme restores the original
+ * dark/gold look that way.
+ */
+.bindery-cards {
+	display: grid;
+	grid-template-columns: repeat(var(--bindery-cols, 3), minmax(0, 1fr));
+	gap: 20px;
+	max-width: 1040px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.bindery-card {
+	background: var(--bindery-surface, rgba(127, 127, 127, 0.1));
+	border: 1px solid var(--bindery-border, rgba(127, 127, 127, 0.25));
+	border-radius: 14px;
+	padding: 26px;
+}
+
+.bindery-card__title {
+	margin: 0 0 8px;
+	color: var(--bindery-heading, inherit);
+	font-size: 19px;
+	line-height: 1.3;
+}
+
+.bindery-card__body {
+	margin: 0;
+	color: var(--bindery-muted, #737373);
+	font-size: 16px;
+	line-height: 1.6;
+}
+
+@media (max-width: 781px) {
+	.bindery-cards {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Style variant: Minimal — no card chrome, just text. */
+.is-style-minimal .bindery-card {
+	background: transparent;
+	border: 0;
+	padding: 8px 4px;
+}

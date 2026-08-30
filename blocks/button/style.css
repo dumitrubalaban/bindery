@@ -1,0 +1,17 @@
+/* bindery/button — shared front + editor. Accent colours come from --bindery-*
+   custom properties (gold fallback) so the button matches the active theme. */
+.bindery-button-block {
+	text-align: center;
+	margin: 12px 0;
+}
+.bindery-button-link {
+	display: inline-block;
+	background: linear-gradient( 180deg, var(--bindery-accent-2, #f0d488), var(--bindery-accent, #d8b75d) );
+	color: var(--bindery-accent-text, #1a1408);
+	font-weight: 700;
+	font-size: 16px;
+	text-decoration: none;
+	padding: 13px 32px;
+	border-radius: 999px;
+	cursor: pointer;
+}

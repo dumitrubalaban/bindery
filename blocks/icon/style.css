@@ -1,0 +1,10 @@
+/* bindery/icon — shared front + editor. */
+.bindery-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 0;
+}
+.bindery-icon svg {
+	display: block;
+}

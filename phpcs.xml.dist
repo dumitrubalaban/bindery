@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<ruleset name="Bindery">
+	<description>Coding standards for the Bindery plugin.</description>
+
+	<file>bindery.php</file>
+	<file>uninstall.php</file>
+	<file>src</file>
+
+	<arg name="extensions" value="php"/>
+	<arg name="basepath" value="."/>
+	<arg value="ps"/>
+	<arg name="colors"/>
+
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/tests/*</exclude-pattern>
+	<exclude-pattern>*/blocks/*</exclude-pattern>
+
+	<rule ref="WordPress-Extra">
+		<!--
+			Bindery is a modern, PSR-12 / OOP codebase (DI container, typed value
+			objects, service providers). The following WordPress-core naming
+			conventions target procedural theme/plugin code and conflict with that
+			deliberate architecture, so they are excluded project-wide. Substantive
+			sniffs (security, escaping, prepared SQL, i18n) remain fully enforced.
+		-->
+
+		<!-- File names follow PSR-4 class names, not core's hyphenated scheme. -->
+		<exclude name="WordPress.Files.FileName"/>
+
+		<!-- Class methods use PSR-12 camelCase (registerRoutes, getValue …);
+		     global facade functions (bindery_field) stay snake_case and are
+		     still enforced by the rest of this sniff. -->
+		<exclude name="WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid"/>
+
+		<!-- Hooks are namespaced with slashes (bindery/booted), a well-established
+		     modern convention; underscores are not required. -->
+		<exclude name="WordPress.NamingConventions.ValidHookName.UseUnderscores"/>
+
+		<!-- Typed value objects expose camelCase public properties
+		     ($def->localeAware, $context->objectId) as their public API. -->
+		<exclude name="WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase"/>
+		<exclude name="WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase"/>
+
+		<!-- Typed parameters named $default / $class are unambiguous in modern PHP. -->
+		<exclude name="Universal.NamingConventions.NoReservedKeywordParameterNames"/>
+	</rule>
+
+	<config name="minimum_supported_wp_version" value="6.5"/>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="bindery"/>
+			</property>
+		</properties>
+	</rule>
+</ruleset>

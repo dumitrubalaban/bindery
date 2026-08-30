@@ -1,0 +1,756 @@
+# Copyright (C) 2026 Bindery
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Bindery 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bindery\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-06-21T17:42:57+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: bindery\n"
+
+#. Plugin Name of the plugin
+#. Author of the plugin
+#: bindery.php
+#: src/Admin/SettingsPage.php:30
+#: src/Admin/SettingsPage.php:31
+#: src/Providers/PatternsServiceProvider.php:36
+msgid "Bindery"
+msgstr ""
+
+#. Description of the plugin
+#: bindery.php
+msgid "Editable regions for hand-built themes. Declare what a client may edit in clean theme code; Bindery binds it to a locked, multilingual editor — no markup ownership, no builder bloat."
+msgstr ""
+
+#: blocks/form/render.php:32
+#: src-js/blocks/form/index.js:89
+msgid "Get in touch"
+msgstr ""
+
+#: blocks/form/render.php:33
+#: src-js/blocks/form/index.js:63
+#: src-js/blocks/form/index.js:90
+msgid "Name"
+msgstr ""
+
+#: blocks/form/render.php:34
+#: src-js/blocks/form/index.js:64
+#: src-js/blocks/form/index.js:91
+msgid "Email"
+msgstr ""
+
+#: blocks/form/render.php:35
+#: src-js/blocks/form/index.js:65
+#: src-js/blocks/form/index.js:92
+msgid "Message"
+msgstr ""
+
+#: blocks/form/render.php:36
+#: src-js/blocks/form/index.js:93
+msgid "Send"
+msgstr ""
+
+#: blocks/form/render.php:37
+msgid "Thanks! We will be in touch shortly."
+msgstr ""
+
+#: blocks/slider/render.php:71
+#: src-js/blocks/slider/index.js:165
+msgid "Previous slide"
+msgstr ""
+
+#: blocks/slider/render.php:72
+#: src-js/blocks/slider/index.js:166
+msgid "Next slide"
+msgstr ""
+
+#. translators: %d: slide number
+#: blocks/slider/render.php:80
+#, php-format
+msgid "Go to slide %d"
+msgstr ""
+
+#: src/Bindings/FieldBindingSource.php:50
+msgid "Bindery Field"
+msgstr ""
+
+#: src/Providers/BlocksServiceProvider.php:64
+msgid "Minimal"
+msgstr ""
+
+#: src/Providers/BlocksServiceProvider.php:71
+msgid "Boxed"
+msgstr ""
+
+#: src/Providers/FormsServiceProvider.php:45
+msgid "Form Submissions"
+msgstr ""
+
+#: src/Providers/FormsServiceProvider.php:46
+msgid "Submission"
+msgstr ""
+
+#: src/Providers/FormsServiceProvider.php:47
+msgid "Submissions"
+msgstr ""
+
+#: src/Providers/PatternsServiceProvider.php:63
+msgid "Bindery: Hero section"
+msgstr ""
+
+#: src/Providers/PatternsServiceProvider.php:64
+msgid "Bindery: Feature cards"
+msgstr ""
+
+#: src/Providers/PatternsServiceProvider.php:65
+msgid "Bindery: Testimonials slider"
+msgstr ""
+
+#: src/Providers/PatternsServiceProvider.php:66
+msgid "Bindery: Contact form"
+msgstr ""
+
+#: src/Providers/PatternsServiceProvider.php:68
+msgid "Bindery: Full landing page"
+msgstr ""
+
+#: src/Rest/FieldController.php:129
+msgid "You cannot edit Bindery content."
+msgstr ""
+
+#: src/Rest/FieldController.php:133
+msgid "You cannot edit this post."
+msgstr ""
+
+#: src/Rest/FormController.php:52
+msgid "Security check failed — please reload the page and try again."
+msgstr ""
+
+#: src/Rest/FormController.php:62
+msgid "Too many submissions. Please try again later."
+msgstr ""
+
+#: src/Rest/FormController.php:75
+msgid "Please enter your name."
+msgstr ""
+
+#: src/Rest/FormController.php:78
+msgid "Please enter a valid email."
+msgstr ""
+
+#: src/Rest/FormController.php:81
+msgid "Please enter a message."
+msgstr ""
+
+#. translators: %s submitter name.
+#: src/Rest/FormController.php:120
+#, php-format
+msgid "New form submission from %s"
+msgstr ""
+
+#: src-js/blocks/button/index.js:59
+msgid "Bindery button"
+msgstr ""
+
+#: src-js/blocks/button/index.js:61
+#: src-js/blocks/cards/index.js:98
+#: src-js/blocks/editable-text/index.js:31
+#: src-js/blocks/form/index.js:62
+#: src-js/blocks/icon/index.js:61
+#: src-js/blocks/image/index.js:68
+#: src-js/blocks/slider/index.js:111
+msgid "Field key"
+msgstr ""
+
+#: src-js/blocks/button/index.js:66
+msgid "Link URL"
+msgstr ""
+
+#: src-js/blocks/button/index.js:76
+#: src-js/blocks/cards/index.js:113
+#: src-js/blocks/editable-text/index.js:97
+#: src-js/blocks/form/index.js:71
+#: src-js/blocks/icon/index.js:82
+#: src-js/blocks/image/index.js:87
+#: src-js/blocks/slider/index.js:132
+msgid "Set a field key in the block settings →"
+msgstr ""
+
+#: src-js/blocks/button/index.js:89
+msgid "Button label"
+msgstr ""
+
+#: src-js/blocks/cards/index.js:96
+msgid "Bindery cards"
+msgstr ""
+
+#: src-js/blocks/cards/index.js:103
+msgid "Columns"
+msgstr ""
+
+#: src-js/blocks/cards/index.js:131
+msgid "Move up"
+msgstr ""
+
+#: src-js/blocks/cards/index.js:132
+msgid "Move down"
+msgstr ""
+
+#: src-js/blocks/cards/index.js:133
+#: src-js/blocks/image/index.js:107
+#: src-js/blocks/section/index.js:114
+msgid "Remove"
+msgstr ""
+
+#: src-js/blocks/cards/index.js:141
+msgid "+ Add card"
+msgstr ""
+
+#: src-js/blocks/editable-text/index.js:29
+msgid "Bindery field"
+msgstr ""
+
+#: src-js/blocks/editable-text/index.js:32
+msgid "The Bindery field this block edits."
+msgstr ""
+
+#: src-js/blocks/editable-text/index.js:37
+msgid "Default text"
+msgstr ""
+
+#: src-js/blocks/editable-text/index.js:38
+msgid "Shown until a client overrides it."
+msgstr ""
+
+#: src-js/blocks/editable-text/index.js:43
+msgid "HTML tag"
+msgstr ""
+
+#: src-js/blocks/editable-text/index.js:49
+msgid "Locked (display only)"
+msgstr ""
+
+#: src-js/blocks/editable-text/index.js:50
+msgid "Visible on the page, but clients cannot edit it."
+msgstr ""
+
+#: src-js/blocks/editable-text/index.js:113
+msgid "Locked — clients cannot edit this"
+msgstr ""
+
+#: src-js/blocks/editable-text/index.js:129
+msgid "Type…"
+msgstr ""
+
+#: src-js/blocks/form/index.js:61
+msgid "Bindery form"
+msgstr ""
+
+#: src-js/blocks/form/index.js:63
+msgid "Name label"
+msgstr ""
+
+#: src-js/blocks/form/index.js:64
+msgid "Email label"
+msgstr ""
+
+#: src-js/blocks/form/index.js:65
+msgid "Message label"
+msgstr ""
+
+#: src-js/blocks/form/index.js:66
+msgid "Success message"
+msgstr ""
+
+#: src-js/blocks/form/index.js:66
+msgid "Thanks!"
+msgstr ""
+
+#: src-js/blocks/icon/index.js:59
+msgid "Bindery icon"
+msgstr ""
+
+#: src-js/blocks/icon/index.js:66
+msgid "Size"
+msgstr ""
+
+#: src-js/blocks/icon/index.js:72
+msgid "Color"
+msgstr ""
+
+#: src-js/blocks/icon/index.js:116
+msgid "Pick an icon below"
+msgstr ""
+
+#: src-js/blocks/image/index.js:66
+msgid "Bindery image"
+msgstr ""
+
+#: src-js/blocks/image/index.js:73
+msgid "Image size"
+msgstr ""
+
+#: src-js/blocks/image/index.js:79
+msgid "Alt text"
+msgstr ""
+
+#: src-js/blocks/image/index.js:106
+msgid "Replace"
+msgstr ""
+
+#: src-js/blocks/image/index.js:113
+msgid "Loading…"
+msgstr ""
+
+#: src-js/blocks/image/index.js:113
+msgid "Select image"
+msgstr ""
+
+#: src-js/blocks/section/index.js:83
+msgid "Bindery section"
+msgstr ""
+
+#: src-js/blocks/section/index.js:85
+msgid "Background field key"
+msgstr ""
+
+#: src-js/blocks/section/index.js:90
+msgid "Overlay darkness (%)"
+msgstr ""
+
+#: src-js/blocks/section/index.js:97
+msgid "Min height"
+msgstr ""
+
+#: src-js/blocks/section/index.js:113
+msgid "Replace background"
+msgstr ""
+
+#: src-js/blocks/section/index.js:113
+msgid "Set background"
+msgstr ""
+
+#: src-js/blocks/slider/index.js:109
+msgid "Bindery slider"
+msgstr ""
+
+#: src-js/blocks/slider/index.js:116
+msgid "Autoplay (front end)"
+msgstr ""
+
+#: src-js/blocks/slider/index.js:121
+msgid "Interval (ms)"
+msgstr ""
+
+#: src-js/blocks/slider/index.js:150
+msgid "Move slide left"
+msgstr ""
+
+#: src-js/blocks/slider/index.js:151
+msgid "Remove slide"
+msgstr ""
+
+#: src-js/blocks/slider/index.js:152
+msgid "Move slide right"
+msgstr ""
+
+#: src-js/blocks/slider/index.js:179
+msgid "Go to slide"
+msgstr ""
+
+#: src-js/blocks/slider/index.js:187
+msgid "+ Add slide"
+msgstr ""
+
+#: src-js/editor/index.js:176
+msgid "Default"
+msgstr ""
+
+#: src-js/editor/index.js:196
+msgid "Click any Bindery block on the page and type. Each language saves separately."
+msgstr ""
+
+#: src-js/editor/index.js:198
+msgid "Saving…"
+msgstr ""
+
+#: src-js/editor/index.js:200
+msgid "All changes saved."
+msgstr ""
+
+#: src-js/editor/index.js:202
+msgid "Save failed — try saving the page first."
+msgstr ""
+
+#: src-js/editor/index.js:209
+msgid "Editing language"
+msgstr ""
+
+#: src-js/editor/index.js:223
+msgid "Bindery language"
+msgstr ""
+
+#: src-js/settings/index.js:75
+msgid "Settings saved."
+msgstr ""
+
+#: src-js/settings/index.js:77
+msgid "Could not save settings."
+msgstr ""
+
+#: src-js/settings/index.js:82
+msgid "Editable Content"
+msgstr ""
+
+#: src-js/settings/index.js:83
+msgid "Editing Experience"
+msgstr ""
+
+#: src-js/settings/index.js:84
+msgid "Permissions"
+msgstr ""
+
+#: src-js/settings/index.js:85
+msgid "History & Data"
+msgstr ""
+
+#: src-js/settings/index.js:104
+msgid "Automatic content editing"
+msgstr ""
+
+#: src-js/settings/index.js:107
+msgid "Let clients edit existing page text in place"
+msgstr ""
+
+#: src-js/settings/index.js:108
+msgid "Headings, paragraphs and other text become editable on the live page — no blocks or code needed."
+msgstr ""
+
+#: src-js/settings/index.js:112
+msgid "Which elements are editable"
+msgstr ""
+
+#: src-js/settings/index.js:123
+msgid "Images, links and buttons are made editable with Bindery blocks instead."
+msgstr ""
+
+#: src-js/settings/index.js:125
+msgid "Where it applies"
+msgstr ""
+
+#: src-js/settings/index.js:139
+msgid "On-page overlay"
+msgstr ""
+
+#: src-js/settings/index.js:142
+msgid "Show the floating “Edit page” button"
+msgstr ""
+
+#: src-js/settings/index.js:148
+msgid "Enter edit mode automatically for editors"
+msgstr ""
+
+#: src-js/settings/index.js:154
+msgid "Strict mode — only edit regions the developer marked"
+msgstr ""
+
+#: src-js/settings/index.js:155
+msgid "Leaves block content to the block editor; the overlay touches only hand-coded regions."
+msgstr ""
+
+#: src-js/settings/index.js:159
+msgid "Accent colour"
+msgstr ""
+
+#: src-js/settings/index.js:170
+msgid "Who can edit"
+msgstr ""
+
+#: src-js/settings/index.js:184
+msgid "History"
+msgstr ""
+
+#: src-js/settings/index.js:187
+msgid "Keep a revision history of every edit"
+msgstr ""
+
+#: src-js/settings/index.js:193
+msgid "Versions kept per field"
+msgstr ""
+
+#: src-js/settings/index.js:200
+msgid "Migrate content"
+msgstr ""
+
+#: src-js/settings/index.js:202
+msgid "Move all edited values between sites (e.g. staging → production)."
+msgstr ""
+
+#: src-js/settings/index.js:207
+msgid "Export values (JSON)"
+msgstr ""
+
+#: src-js/settings/index.js:211
+msgid "Uninstall"
+msgstr ""
+
+#: src-js/settings/index.js:213
+msgid "Delete all Bindery data when the plugin is deleted"
+msgstr ""
+
+#: src-js/settings/index.js:214
+msgid "Off by default, so your edits survive a reinstall."
+msgstr ""
+
+#: src-js/settings/index.js:243
+msgid "That file is not valid JSON."
+msgstr ""
+
+#: src-js/settings/index.js:247
+msgid "Imported"
+msgstr ""
+
+#: src-js/settings/index.js:247
+msgid "values."
+msgstr ""
+
+#: src-js/settings/index.js:248
+msgid "Import failed."
+msgstr ""
+
+#: src-js/settings/index.js:256
+msgid "Save settings"
+msgstr ""
+
+#: src-js/settings/index.js:261
+msgid "Enable Bindery editing on this site"
+msgstr ""
+
+#: blocks/button/block.json
+msgctxt "block title"
+msgid "Bindery Button"
+msgstr ""
+
+#: blocks/button/block.json
+msgctxt "block description"
+msgid "An editable call-to-action button — label and link, both stored per language and rendered as a real anchor."
+msgstr ""
+
+#: blocks/button/block.json
+#: blocks/cards/block.json
+#: blocks/editable-text/block.json
+#: blocks/form/block.json
+#: blocks/icon/block.json
+#: blocks/image/block.json
+#: blocks/section/block.json
+#: blocks/slider/block.json
+msgctxt "block keyword"
+msgid "bindery"
+msgstr ""
+
+#: blocks/button/block.json
+msgctxt "block keyword"
+msgid "button"
+msgstr ""
+
+#: blocks/button/block.json
+msgctxt "block keyword"
+msgid "cta"
+msgstr ""
+
+#: blocks/button/block.json
+msgctxt "block keyword"
+msgid "link"
+msgstr ""
+
+#: blocks/cards/block.json
+msgctxt "block title"
+msgid "Bindery Cards"
+msgstr ""
+
+#: blocks/cards/block.json
+msgctxt "block description"
+msgid "An editable grid of cards backed by a Bindery repeater field — clients add, remove, reorder and edit rows inline, per language."
+msgstr ""
+
+#: blocks/cards/block.json
+#: blocks/slider/block.json
+msgctxt "block keyword"
+msgid "repeater"
+msgstr ""
+
+#: blocks/cards/block.json
+msgctxt "block keyword"
+msgid "cards"
+msgstr ""
+
+#: blocks/cards/block.json
+msgctxt "block keyword"
+msgid "grid"
+msgstr ""
+
+#: blocks/cards/block.json
+msgctxt "block keyword"
+msgid "features"
+msgstr ""
+
+#: blocks/editable-text/block.json
+msgctxt "block title"
+msgid "Bindery Editable Text"
+msgstr ""
+
+#: blocks/editable-text/block.json
+msgctxt "block description"
+msgid "A text region whose content is resolved from a Bindery field — clean markup the developer controls, editable only where allowed."
+msgstr ""
+
+#: blocks/editable-text/block.json
+msgctxt "block keyword"
+msgid "editable"
+msgstr ""
+
+#: blocks/editable-text/block.json
+msgctxt "block keyword"
+msgid "field"
+msgstr ""
+
+#: blocks/editable-text/block.json
+msgctxt "block keyword"
+msgid "binding"
+msgstr ""
+
+#: blocks/form/block.json
+msgctxt "block title"
+msgid "Bindery Form"
+msgstr ""
+
+#: blocks/form/block.json
+msgctxt "block description"
+msgid "A contact/lead form — editable labels per language, submissions stored in wp-admin and emailed. Spam-protected."
+msgstr ""
+
+#: blocks/form/block.json
+msgctxt "block keyword"
+msgid "form"
+msgstr ""
+
+#: blocks/form/block.json
+msgctxt "block keyword"
+msgid "contact"
+msgstr ""
+
+#: blocks/form/block.json
+msgctxt "block keyword"
+msgid "lead"
+msgstr ""
+
+#: blocks/form/block.json
+msgctxt "block keyword"
+msgid "email"
+msgstr ""
+
+#: blocks/icon/block.json
+msgctxt "block title"
+msgid "Bindery Icon"
+msgstr ""
+
+#: blocks/icon/block.json
+msgctxt "block description"
+msgid "An editable icon — the client picks one from a curated set; stored per language and rendered as inline SVG."
+msgstr ""
+
+#: blocks/icon/block.json
+msgctxt "block keyword"
+msgid "icon"
+msgstr ""
+
+#: blocks/icon/block.json
+msgctxt "block keyword"
+msgid "svg"
+msgstr ""
+
+#: blocks/image/block.json
+msgctxt "block title"
+msgid "Bindery Image"
+msgstr ""
+
+#: blocks/image/block.json
+msgctxt "block description"
+msgid "An editable image — the client picks one from the media library inline; stored per language and rendered from the attachment."
+msgstr ""
+
+#: blocks/image/block.json
+msgctxt "block keyword"
+msgid "image"
+msgstr ""
+
+#: blocks/image/block.json
+msgctxt "block keyword"
+msgid "media"
+msgstr ""
+
+#: blocks/image/block.json
+msgctxt "block keyword"
+msgid "picture"
+msgstr ""
+
+#: blocks/section/block.json
+msgctxt "block title"
+msgid "Bindery Section"
+msgstr ""
+
+#: blocks/section/block.json
+msgctxt "block description"
+msgid "A full-width section with an editable background image and any blocks inside — ideal for hero areas."
+msgstr ""
+
+#: blocks/section/block.json
+msgctxt "block keyword"
+msgid "section"
+msgstr ""
+
+#: blocks/section/block.json
+msgctxt "block keyword"
+msgid "cover"
+msgstr ""
+
+#: blocks/section/block.json
+msgctxt "block keyword"
+msgid "hero"
+msgstr ""
+
+#: blocks/section/block.json
+msgctxt "block keyword"
+msgid "background"
+msgstr ""
+
+#: blocks/slider/block.json
+msgctxt "block title"
+msgid "Bindery Slider"
+msgstr ""
+
+#: blocks/slider/block.json
+msgctxt "block description"
+msgid "An auto-advancing slider whose slides are a Bindery repeater — edit slides inline per language; the carousel runs from the block's own viewScript on the front end."
+msgstr ""
+
+#: blocks/slider/block.json
+msgctxt "block keyword"
+msgid "slider"
+msgstr ""
+
+#: blocks/slider/block.json
+msgctxt "block keyword"
+msgid "carousel"
+msgstr ""
+
+#: blocks/slider/block.json
+msgctxt "block keyword"
+msgid "slides"
+msgstr ""

@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bindery/form",
+	"version": "0.1.0",
+	"title": "Bindery Form",
+	"category": "design",
+	"icon": "email",
+	"description": "A contact/lead form — editable labels per language, submissions stored in wp-admin and emailed. Spam-protected.",
+	"keywords": [ "bindery", "form", "contact", "lead", "email" ],
+	"textdomain": "bindery",
+	"attributes": {
+		"fieldKey": { "type": "string", "default": "" },
+		"binderyType": { "type": "string", "default": "form" }
+	},
+	"usesContext": [ "postId" ],
+	"supports": {
+		"html": false,
+		"align": [ "wide" ]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

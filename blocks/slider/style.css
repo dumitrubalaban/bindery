@@ -1,0 +1,94 @@
+/*
+ * bindery/slider — self-contained, loaded on the front end AND in the editor.
+ * Front end: view.js turns .bindery-slider__track into a carousel. In the editor
+ * the block adds .is-editing to stack the slides for inline editing (same slide
+ * styling, so each slide looks identical to the front end).
+ *
+ * Colours come from --bindery-* custom properties with neutral fallbacks so the
+ * slider adapts to any theme; the demo theme overrides them for its dark/gold look.
+ */
+.bindery-slider {
+	position: relative;
+	max-width: 820px;
+	margin: 0 auto;
+}
+
+.bindery-slider__viewport {
+	overflow: hidden;
+	border-radius: 16px;
+}
+
+.bindery-slider__track {
+	display: flex;
+	transition: transform 0.5s ease;
+}
+
+.bindery-slide {
+	flex: 0 0 100%;
+	min-width: 100%;
+	box-sizing: border-box;
+	padding: 52px 44px;
+	text-align: center;
+	background: var(--bindery-surface, rgba(127, 127, 127, 0.1));
+	border: 1px solid var(--bindery-border, rgba(127, 127, 127, 0.25));
+	/* Cursor parity front/editor: the slide body is the default arrow in both
+	   contexts. Only the inline RichText fields show a caret (the intended
+	   "you can type here" affordance), and the nav/dots stay pointer below. */
+	cursor: default;
+}
+
+.bindery-slide__title {
+	margin: 0 0 12px;
+	color: var(--bindery-heading, inherit);
+	font-size: 25px;
+	line-height: 1.25;
+}
+
+.bindery-slide__text {
+	margin: 0;
+	color: var(--bindery-text, inherit);
+	font-size: 18px;
+	line-height: 1.6;
+}
+
+.bindery-slider__nav {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 40px;
+	height: 40px;
+	border: 0;
+	border-radius: 50%;
+	background: var(--bindery-nav-bg, rgba(0, 0, 0, 0.45));
+	color: var(--bindery-nav-color, #fff);
+	font-size: 22px;
+	line-height: 1;
+	cursor: pointer;
+}
+.bindery-slider__prev { left: -10px; }
+.bindery-slider__next { right: -10px; }
+
+.bindery-slider__dots {
+	display: flex;
+	gap: 8px;
+	justify-content: center;
+	margin-top: 18px;
+}
+.bindery-slider__dot {
+	width: 9px;
+	height: 9px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: var(--bindery-border, rgba(127, 127, 127, 0.4));
+	cursor: pointer;
+}
+.bindery-slider__dot.is-active { background: var(--bindery-accent, #d8b75d); }
+
+/* Style variant: Boxed — frame the whole slider. */
+.is-style-boxed.bindery-slider {
+	background: var(--bindery-surface, rgba(127, 127, 127, 0.1));
+	border: 1px solid var(--bindery-border, rgba(127, 127, 127, 0.25));
+	border-radius: 18px;
+	padding: 24px;
+}
