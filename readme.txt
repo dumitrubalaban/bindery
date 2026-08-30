@@ -1,6 +1,6 @@
 === Bindery ===
 Contributors: dumitrubalaban
-Tags: inline editing, editable content, multilingual, block bindings, content editor
+Tags: inline editing, front-end editing, client editing, custom theme, no page builder
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
@@ -73,20 +73,25 @@ Yes — export/import all values as JSON from the settings page or with `wp bind
 = Does it work with page builders? =
 Bindery is an alternative to page builders, not an add-on. It works with any classic or block theme and the native block editor.
 
-= Where is the source code for the compiled JavaScript? =
-The `/build` directory shipped with the plugin (block editor scripts, the settings screen, and the front-end overlay's compiled entry points) is generated from the human-readable source in `/src-js` using `@wordpress/scripts` and the included `webpack.config.js`. Both the full source and the build configuration are published in the plugin's public repository:
+= Does it work with ACF, custom post type loops, or plain PHP arrays? =
+Yes. The repeater helper (`bindery_repeater_attrs()` / `bindery_rows()`) wraps any loop — an ACF repeater field, a `WP_Query` of custom post types, or a hand-written PHP array — and lets a client add, edit, reorder and delete rows through a front-end modal, without changing how your template fetches the data.
 
-https://github.com/dumitrubalaban/bindery
+= Is Bindery free? =
+Yes, Bindery is free and released under the GPL, like WordPress itself. There is no paid tier.
 
-Run `npm install && npm run build` from the repository root to reproduce `/build` from `/src-js`.
+= What happens to my content if I deactivate or uninstall Bindery? =
+Deactivating keeps all saved values in the `wp_bindery_values` table untouched. Uninstalling (deleting the plugin from the Plugins screen) removes that table and its data — export your content first with the JSON export tool or `wp bindery export` if you might reinstall later.
+
+= Where can I get support or read the full developer docs? =
+Use the **Support** tab on this page for questions and bug reports. The plugin's overview and source code are on GitHub: https://github.com/dumitrubalaban/bindery
 
 == Screenshots ==
 
-1. The settings screen — turn on inline editing and tick which elements (headings, paragraphs, lists…) clients can edit. No code required.
-2. Editing on the live page — the "Edit page" overlay outlines every editable region; click and type to change text in place.
-3. Auto content editing — existing page text becomes editable automatically, per page, with full revision history.
-4. Eight self-contained blocks and ready-made patterns for richer editable layouts, all adapting to your theme.
-5. History & Data — per-field revision history, one-click restore, and JSON export/import for site migrations.
+1. Editing text in place — the outlined region shows a rich-text toolbar and a Save button right on the live page.
+2. Replacing an image — click any declared image region to open the native media library and swap it, no page reload.
+3. The native WordPress media library opens right on the front end to pick a replacement image.
+4. A repeater in action — clients can add, edit and reorder list items (here, testimonials) through a simple modal, all from a theme-declared loop.
+5. One line of code turns a static PHP loop into a client-editable repeater.
 
 == Changelog ==
 
